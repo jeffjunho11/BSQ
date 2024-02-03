@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:11:05 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 22:32:49 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:51:24 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "string_util.h"
 #include "ft_split.h"
 #include <malloc.h>
-#include <stdio.h>
 
 int	try_read_line(t_map *map, int line, char *str)
 {
@@ -28,18 +27,13 @@ int	try_read_line(t_map *map, int line, char *str)
 	count = -1;
 	while (++count < len && str[count] != '\0')
 	{
-		// printf("\nindex %d line %d str[count] %d\n",index + count,line, str[count]);
-
 		if (str[count] == map->empty)
 			map->data[count + index] = empty;
 		else if (str[count] == map->obstacle)
 			map->data[count + index] = obstacle;
 		else
 			return (0);
-		// printf("%c ",map->data[count + index] + '0');
 	}
-		// printf("\n");
-
 	return (1);
 }
 
@@ -74,27 +68,8 @@ int	get_map_data(t_map *map, char *dir)
 	if (try_read_txt(&read, dir) == 0)
 		return (0);
 	data = ft_split(read, "\n");
-	printf("%s\n",read);
 	try = try_data_to_map(map, data, count_line(read));
 	free_string_array(data);
 	free(read);
 	return (try);
 }
-
-
-// int	try_parse_map(t_map *map, char *dir)
-// {
-
-
-// }
-
-
-
-
-// int		try_parse_maps(t_map **maps, char **dirs, int index, int max)
-// {
-
-
-
-// 	return (0);
-// }

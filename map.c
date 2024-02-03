@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:12:00 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 22:34:25 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:55:49 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,4 @@ void	print_map(t_map *map)
 		else if (map->data[index] == full)
 			write(1, &(map->full), 1);
 	}
-	write(1, "\n", 1);
 }
