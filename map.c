@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:12:00 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 22:55:49 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 23:06:43 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ void	delete_dic(t_map *map)
 	free(map->data);
 }
 
-t_map_type	get_data(t_map *map,int x, int y)
+t_map_type	*get_data(t_map *map,int x, int y)
 {
 	int	index;
 
 	index = x + y * map->width;
 	if (index >= map->size || index < -1)
-		return (error);
-	return (map->data[index]);
+		return (NULL);
+	return (&map->data[index]);
 }
 
 void	print_map(t_map *map)

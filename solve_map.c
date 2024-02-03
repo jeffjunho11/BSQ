@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:05:15 by junhoh            #+#    #+#             */
-/*   Updated: 2024/02/03 22:53:18 by junhoh           ###   ########.fr       */
+/*   Updated: 2024/02/03 23:11:34 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ t_pos	*find_max_square(t_map *map, t_pos *max, int **dp)
 	int	i;
 	int	j;
 	int	max_cell;
-
+	
+	i = 0;
+	j = 0;
 	max_cell = 0;
 	while (i < map->height)
 	{
@@ -42,6 +44,7 @@ t_pos	*find_max_square(t_map *map, t_pos *max, int **dp)
 				max->x = j;
 				max->y = i;
 				max->size = dp[i][j];
+				max_cell = dp[i][j];
 			}
 		}
 	}
@@ -52,8 +55,8 @@ void	memory_free(int **dp, t_map *map)
 {
 	int i;
 	
-	i = 0;
-	while (i < map->width)
+	i = -1;
+	while (++i < map->height)
 		free(dp[i]);
 	free(dp);
 }
@@ -62,14 +65,15 @@ void fill_map(t_map *map, t_pos *max, int **dp)
 {
 	int i;
 	int j;
+	printf("full %d %d %d\n",max->size, max->x,max->y);
 
-	i = max->size;
+	i = max->size - 1;
 	while(i > 0)
 	{
-		j = max->size;
+		j = max->size - 1;
 		while(j > 0)
 		{
-			map->data[(i * map->width) + j] = full;
+			*get_data(map, max->x - j, max->y - i) = full;
 			j--;
 		}
 		i--;
@@ -90,7 +94,7 @@ t_pos	*solve_map(t_map *map, t_pos *max)
 		dp[i] = (int *)malloc(sizeof(int) * (map->width + 1));
 		while (j < map->width)
 		{
-			if (get_data(map, i, j) == obstacle)
+			if (*get_data(map, i, j) == obstacle)
 				dp[i][j] = 0;
 			else
 				dp[i][j] = 1;
@@ -105,7 +109,8 @@ t_pos	*solve_map(t_map *map, t_pos *max)
 		}
 		i++;
 	}
-	max = find_max_square(map, max, dp);
-	memory_free(dp, map);
+	find_max_square(map, max, dp);
+	fill_map(map, max, dp);
+	// memory_free(dp, map);
 	return (max);
 }
