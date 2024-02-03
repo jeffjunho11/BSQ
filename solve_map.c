@@ -6,13 +6,13 @@
 /*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:05:15 by junhoh            #+#    #+#             */
-/*   Updated: 2024/02/03 21:33:56 by junhoh           ###   ########.fr       */
+/*   Updated: 2024/02/03 21:40:21 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
 #include "map.h"
-#define MAP_SIZE 100
+
 /*
 int	valid_check()
 {
