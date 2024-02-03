@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
+/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 23:37:31 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/04 01:47:55 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	try_parse_maps(char **dirs, int index, int max)
 	{
 		if (get_map_data(&map, dirs[index]) == 0)
 		{
-			write(1, "map error", 11);
+			write(1, "map error\n", 11);
 			continue ;
 		}
 		solve_map(&map, &pos);
 		if (pos.size == -1)
-			write(1, "map error\n", 11);
+			write(1, "map no\n", 11);
 		else
 			print_map(&map);
 		delete_dic(&map);

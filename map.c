@@ -6,7 +6,7 @@
 /*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:12:00 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 23:29:27 by junhoh           ###   ########.fr       */
+/*   Updated: 2024/02/04 02:01:03 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,25 @@ int	create_map(t_map *map, int width)
 
 int	set_value(t_map *map, char *info)
 {
-	char	empty;
+	int		pivot;
 	char	obstacle;
 	char	full;
 	int		index;
 	int		check;
 
-	index = -1;
-	while (++index < get_len(info))
-	{
-		check = 0;
-		while (check < index)
-			if (info[check++] == info[index])
-				return (0);
-	}
 	map->height = ft_atoi(info, &index);
-	map->empty = info[index++];
-	map->obstacle = info[index++];
-	map->full = info[index++];
+	pivot = index;
+	index = -1;
+	// while (++index < pivot)
+	// {
+	// 	check = 0;
+	// 	while (check < index)
+	// 		if (info[check++] == info[index])
+	// 			return (0);
+	// }
+	map->empty = info[pivot++];
+	map->obstacle = info[pivot++];
+	map->full = info[pivot++];
 	return (1);
 }
 
