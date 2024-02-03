@@ -6,7 +6,7 @@
 /*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:05:15 by junhoh            #+#    #+#             */
-/*   Updated: 2024/02/03 22:51:53 by junhoh           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:53:18 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,24 @@ void	memory_free(int **dp, t_map *map)
 	while (i < map->width)
 		free(dp[i]);
 	free(dp);
+}
+
+void fill_map(t_map *map, t_pos *max, int **dp)
+{
+	int i;
+	int j;
+
+	i = max->size;
+	while(i > 0)
+	{
+		j = max->size;
+		while(j > 0)
+		{
+			map->data[(i * map->width) + j] = full;
+			j--;
+		}
+		i--;
+	}
 }
 
 t_pos	*solve_map(t_map *map, t_pos *max)
