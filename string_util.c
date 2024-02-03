@@ -6,12 +6,21 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:02:05 by junmin            #+#    #+#             */
-/*   Updated: 2024/01/31 22:19:19 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 21:20:06 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <malloc.h>
-#include "ft_strjoin.h"
+
+int	get_len(char *str)
+{
+	int	count;
+
+	count = 0;
+	while (str[count])
+		count++;
+	return (count);
+}
 
 int	count_line(char *data)
 {

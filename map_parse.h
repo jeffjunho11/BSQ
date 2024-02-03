@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_trim.h                                   :+:      :+:    :+:   */
+/*   map_parse.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 16:41:51 by junmin            #+#    #+#             */
-/*   Updated: 2024/01/31 17:10:42 by junmin           ###   ########.fr       */
+/*   Created: 2024/02/03 20:11:05 by junmin            #+#    #+#             */
+/*   Updated: 2024/02/03 21:28:58 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRING_TRIM_H
-# define FT_STRING_TRIM_H
-# include <malloc.h>
-# include "ft_strjoin.h"
+#include "map.h"
+#include "read_text.h"
+#include "string_util.h"
+#include "ft_split.h"
+#include <malloc.h>
 
-char	*ft_string_trim(char *src);
-
-#endif
+int		try_read_line(t_map *map, int line, char *str);
+int		try_data_to_map(t_map *map, char **data);
+int		get_map_data(t_map *map, char *dir);
+int		try_parse_map(t_map *map, char *dir);
+int		try_parse_maps(t_map **maps, char **dirs, int index, int max);

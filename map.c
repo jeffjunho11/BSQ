@@ -6,27 +6,48 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:12:00 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 20:26:19 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 21:27:23 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "map.h"
-#include "ft_split.h"
-#include "ft_strjoin.h"
 #include "string_util.h"
-#include "ft_string_trim.h"
+#include "string_util.h"
+#include "ft_atoi.h"
 #include <malloc.h>
 
-int	create_map(t_map *map, int width, int height)
+int	create_map(t_map *map, int line)
 {
-	map->size = width * height;
-	map->width = width;
-	map->height = height;
+	map->size = line * map->width;
+	map->height = line;
 	map->data = malloc(sizeof(t_map_type) * (map->size + 1));
 	if (!(map->data))
 		return (0);
 	map->data[map->size] = 0;
+	return (1);
+}
+
+int	set_value(t_map *map, char *info)
+{
+	char	empty;
+	char	obstacle;
+	char	full;
+	int		index;
+	int		check;
+
+	index = -1;
+	while (++index < get_len(info))
+	{
+		check = 0;
+		while (check < index)
+			if (info[check++] == info[index])
+				return (0);
+	}
+	map->width = ft_atoi(info, &index);
+	map->empty = info[index++];
+	map->obstacle = info[index++];
+	map->full = info[index++];
 	return (1);
 }
 
@@ -35,28 +56,12 @@ void	delete_dic(t_map *map)
 	free(map->data);
 }
 
-int	try_parse_to_dic(t_map *map, char **data, int len)
+t_map_type	get_data(t_map *map,int x, int y)
 {
-	int		index;
-	char	**split;
-	int		size;
+	int	index;
 
-	if (create_map(map, len) == 0)
-		return (0);
-	index = 0;
-	while (data[index])
-	{
-		if (*data[index] == 0)
-			break ;
-		split = ft_split(data[index], ": ");
-		size = 0;
-		while (*split[size])
-			size++;
-		map->key[index] = ft_string_trim(split[0]);
-		map->value[index++] = ft_strjoin_from_one(size, split, " ");
-		free_string_array(split);
-	}
-	map->size = index;
-	ft_sort_dic(map, 0, map->size - 1);
-	return (1);
+	index = x + y * map->width;
+	if (index >= map->size || index < -1)
+		return (error);
+	return (map->data[index]);
 }

@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"map.h": "c",
+		"ft_string_trim.h": "c",
+		"map_parse.h": "c",
+		"stdio.h": "c",
+		"string_util.h": "c",
+		"malloc.h": "c",
+		"ft_split.h": "c"
+	}
+}
