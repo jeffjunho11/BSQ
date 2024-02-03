@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dic.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 20:10:14 by junmin           ###   ########.fr       */
+/*   Created: 2024/01/30 17:00:39 by junmin            #+#    #+#             */
+/*   Updated: 2024/01/31 05:15:27 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#ifndef DIC_H
+# define DIC_H
+# include "t_dic.h"
+# include "ft_split.h"
+# include "ft_strjoin.h"
+# include <malloc.h>
 
-int	main(int argc, char **argv)
-{
-	t_map	result;
+int		count_line(char *data);
+int		create_dic(t_dic *dic, int size);
+void	delete_dic(t_dic *dic);
+int		try_parse_to_dic(t_dic *dic, char **data, int len);
 
-	if (argc > 3 || argc < 2)
-	{
-		write (2, "Error\n", 7);
-		return (1);
-	}
-	if (argc == 3)
-	{
-		if (new_dic(&result, argv[1], argv[2]) == 0)
-			return (1);
-	}
-	else
-	{
-		if (defalut_dic(&result, argv[1]) == 0)
-			return (1);
-	}
-	delete_dic(&result);
-	return (0);
-}
+#endif

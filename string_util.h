@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   string_util.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 20:10:14 by junmin           ###   ########.fr       */
+/*   Created: 2024/01/30 20:01:18 by junmin            #+#    #+#             */
+/*   Updated: 2024/01/31 16:44:12 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#ifndef STRING_UTIL_H
+# define STRING_UTIL_H
+# include <malloc.h>
+# include "ft_strjoin.h"
 
-int	main(int argc, char **argv)
-{
-	t_map	result;
+int		count_line(char *data);
+void	free_string_array(char **array);
+int		ft_strcmp(char *s1, char *s2);
+void	ft_swap_array(char **num1, char **num2);
 
-	if (argc > 3 || argc < 2)
-	{
-		write (2, "Error\n", 7);
-		return (1);
-	}
-	if (argc == 3)
-	{
-		if (new_dic(&result, argv[1], argv[2]) == 0)
-			return (1);
-	}
-	else
-	{
-		if (defalut_dic(&result, argv[1]) == 0)
-			return (1);
-	}
-	delete_dic(&result);
-	return (0);
-}
+#endif
