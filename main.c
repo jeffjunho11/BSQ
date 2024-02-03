@@ -6,12 +6,13 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 21:42:48 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:40:48 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 #include "map_parse.h"
+#include "solve_map.h"
 #include <stdio.h>
 
 
@@ -21,8 +22,10 @@ int	main(int argc, char **argv)
 {
 	char	**input;
 	t_map	map;
+	t_pos	pos;
 
 	get_map_data(&map,"example_file");
+	solve_map(&map,&pos);
 	print_map(&map);
 	printf("height\n %d\n\n",map.height);
 	printf("width\n %d\n\n",map.width);

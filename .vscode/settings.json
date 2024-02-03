@@ -6,6 +6,7 @@
 		"stdio.h": "c",
 		"string_util.h": "c",
 		"malloc.h": "c",
-		"ft_split.h": "c"
+		"ft_split.h": "c",
+		"solve_map.h": "c"
 	}
 }

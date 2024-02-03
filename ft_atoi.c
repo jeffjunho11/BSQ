@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 01:38:17 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 21:36:33 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:39:20 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,3 @@ int	ft_atoi(char *str, int *index)
 	}
 	return (result * sign);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("%d\n",ft_atoi("123456789"));
-// 	printf("%d\n",ft_atoi("2147483647"));
-// 	printf("%d\n",ft_atoi("-2147483648"));
-// 	printf("%d\n",ft_atoi("--+-+-++-123456"));
-// 	return 0;
-// }
