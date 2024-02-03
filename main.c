@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
+/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 22:40:48 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:55:07 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	t_map	map;
 	t_pos	pos;
 
-	get_map_data(&map,"example_file");
+	//get_map_data(&map,"example_file");
 	solve_map(&map,&pos);
 	print_map(&map);
 	printf("height\n %d\n\n",map.height);

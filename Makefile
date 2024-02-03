@@ -1,7 +1,7 @@
 CC = cc
 CFLAG = -Wall -Wextra -Werror
 
-SRCS = src/main.c src/dic_apply.c src/dic_util.c src/dic.c src/ft_split.c src/ft_split_trim.c src/ft_strjoin.c src/map_parse.c src/map.c src/read_text src/solve_map.c src/string_util.c
+SRCS = main.c ft_atoi.c ft_split.c map_parse.c map.c read_text.c solve_map.c string_util.c
 
 TARGET = bsq
 HEADER = -I includes
