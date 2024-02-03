@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
+/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 19:48:32 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 19:56:24 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 20:13:04 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_pos
 typedef struct s_map
 {
 	char *data;
+	int	height;
+	int	width;
 }	t_map;
 
 typedef enum e_map_type
@@ -31,4 +33,4 @@ typedef enum e_map_type
 	full,
 }	t_map_type;
 
-e_map_type	get_data(t_map *map,int x, int y);
+t_map_type	get_data(t_map *map,int x, int y);
