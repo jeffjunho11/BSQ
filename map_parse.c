@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:11:05 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 21:30:51 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:32:49 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "string_util.h"
 #include "ft_split.h"
 #include <malloc.h>
+#include <stdio.h>
 
 int	try_read_line(t_map *map, int line, char *str)
 {
@@ -23,17 +24,22 @@ int	try_read_line(t_map *map, int line, char *str)
 	int index;
 
 	len = get_len(str);
-	index = line * map->height;
+	index = line * map->width;
 	count = -1;
-	while (++count < len)
+	while (++count < len && str[count] != '\0')
 	{
-		if (str[len] == map->empty)
+		// printf("\nindex %d line %d str[count] %d\n",index + count,line, str[count]);
+
+		if (str[count] == map->empty)
 			map->data[count + index] = empty;
-		else if (str[len] == map->obstacle)
+		else if (str[count] == map->obstacle)
 			map->data[count + index] = obstacle;
 		else
 			return (0);
+		// printf("%c ",map->data[count + index] + '0');
 	}
+		// printf("\n");
+
 	return (1);
 }
 
@@ -45,15 +51,16 @@ int	try_data_to_map(t_map *map, char **data, int count_line)
 	index = 0;
 	if (set_value(map, data[index++]) == 0)
 		return (0);
-	if (create_map(map, count_line - 1) == 0)
+	if (create_map(map, get_len(data[index])) == 0)
 		return (0);
-	while (data[index])
+	while (index < count_line + 1)
 	{
 		len = get_len(data[index]);
-		if (*data[index] == 0 || len != map->width)
+		if (len != map->width)
 			break ;
-		if (try_read_line(map, index, data[index]) == 0)
+		if (try_read_line(map, index - 1, data[index]) == 0)
 			break ;
+		index++;
 	}
 	return (1);
 }
@@ -67,6 +74,7 @@ int	get_map_data(t_map *map, char *dir)
 	if (try_read_txt(&read, dir) == 0)
 		return (0);
 	data = ft_split(read, "\n");
+	printf("%s\n",read);
 	try = try_data_to_map(map, data, count_line(read));
 	free_string_array(data);
 	free(read);

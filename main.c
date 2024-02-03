@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 17:02:22 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 21:30:58 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 21:42:48 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,16 @@ char	**get_input(char *input);
 int	main(int argc, char **argv)
 {
 	char	**input;
-	t_map	**maps;
+	t_map	map;
 
-	get_map_data(*maps,argv[1]);
-	for (size_t i = 0; i < (*maps)->data[i]; i++)
-	{
-		printf("%d ",(*maps)->data[i]);
-		if (i + 1 == (*maps)->width)
-			printf("\n");
-	}
-	
-	printf("height\n %d\n\n",(*maps)->height);
-	printf("width\n %d\n\n",(*maps)->width);
-	printf("size\n %d\n\n",(*maps)->size);
-	printf("empty\n %d\n\n",(*maps)->empty);
-	printf("obstacle\n %d\n\n",(*maps)->obstacle);
-	printf("full\n %d\n\n",(*maps)->full);
+	get_map_data(&map,"example_file");
+	print_map(&map);
+	printf("height\n %d\n\n",map.height);
+	printf("width\n %d\n\n",map.width);
+	printf("size\n %d\n\n",map.size);
+	printf("empty\n %c\n\n",map.empty);
+	printf("obstacle\n %c\n\n",map.obstacle);
+	printf("full\n %c\n\n",map.full);
 	// if (argc <= 1)
 	// {
 	// 	// input = get_input(maps, argv, 1);

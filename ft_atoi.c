@@ -6,7 +6,7 @@
 /*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 01:38:17 by junmin            #+#    #+#             */
-/*   Updated: 2024/02/03 21:06:20 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 21:36:33 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(char *str, int *index)
 		if (str[*index] < '0' || str[*index] > '9')
 			break ;
 		result = result * 10 + str[*index] - '0';
-		index++;
+		(*index)++;
 	}
 	return (result * sign);
 }

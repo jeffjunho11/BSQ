@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 19:48:32 by junmin            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/02/03 22:03:15 by junhoh           ###   ########.fr       */
-=======
-/*   Updated: 2024/02/03 21:26:22 by junmin           ###   ########.fr       */
->>>>>>> 8cc2e18 (feat parse data)
+/*   Created: 2024/02/03 22:36:53 by junmin            #+#    #+#             */
+/*   Updated: 2024/02/03 22:36:56 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef MAP_H
 # define MAP_H
@@ -20,6 +17,7 @@
 # include "string_util.h"
 # include "ft_atoi.h"
 # include <malloc.h>
+# include <unistd.h>
 
 typedef struct s_pos
 {
@@ -52,5 +50,6 @@ int			create_map(t_map *map, int line);
 int			set_value(t_map *map, char *info);
 void		delete_dic(t_map *map);
 t_map_type	get_data(t_map *map,int x, int y);
+void		print_map(t_map *map);
 
 #endif
