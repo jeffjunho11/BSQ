@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
+/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:05:15 by junhoh            #+#    #+#             */
-/*   Updated: 2024/02/03 22:38:56 by junmin           ###   ########.fr       */
+/*   Updated: 2024/02/03 22:51:53 by junhoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ t_pos	*solve_map(t_map *map, t_pos *max)
 			{
 				min_check = min(dp[i - 1][j], dp[i][j - 1]);
 				dp[i][j] = 1 + min(min_check, dp[i - 1][j - 1]);
-			}	
+			}
+			j++;
 		}
+		i++;
 	}
 	max = find_max_square(map, max, dp);
 	memory_free(dp, map);
