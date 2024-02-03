@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhoh <junhoh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: junmin <junmin@student.42gyeongsan.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 19:48:32 by junmin            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/02/03 20:13:04 by junhoh           ###   ########.fr       */
-=======
-/*   Updated: 2024/02/03 20:12:16 by junmin           ###   ########.fr       */
->>>>>>> a930c03 (feat add util)
+/*   Updated: 2024/02/03 20:27:19 by junmin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +20,18 @@ typedef struct s_pos
 
 typedef struct s_map
 {
-	char *data;
-	int	height;
-	int	width;
+	t_map_type	*data;
+	int			height;
+	int			width;
+	int			size;
+	char		empty;
+	char		obstacle;
+	char		full;
 }	t_map;
 
 typedef enum e_map_type
 {
-	error = 0,
+	error = -1,
 	empty,
 	obstacle,
 	full,
